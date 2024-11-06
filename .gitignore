@@ -9,7 +9,7 @@ build/
 
 # Environment variables
 .env
-
+.package-lock.json
 # OS specific files
 .DS_Store
 Thumbs.db
