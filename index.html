@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test POST Request</title>
+</head>
+<body>
+  <h1>Отправка POST-запроса</h1>
+  <button id="sendRequest">Отправить запрос</button>
+
+  <script>
+    // URL сервера
+    const url = 'http://localhost:3333/submit'; // Используем порт 3000, как указано в .env
+
+    // Данные для отправки
+    const data = {
+      name: 'John Doe',
+      email: 'john.doe@example.com',
+    };
+
+    // Функция для отправки POST-запроса
+    document.getElementById('sendRequest').addEventListener('click', () => {
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log('Ответ от сервера:', result); // Обработка ответа от сервера
+        })
+        .catch((error) => {
+          console.error('Ошибка запроса:', error);
+        });
+    });
+  </script>
+</body>
+</html>
